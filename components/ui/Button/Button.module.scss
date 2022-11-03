@@ -1,0 +1,35 @@
+.root {
+  @apply mb-1 inline-block transition duration-200 ease-linear;
+}
+
+.primary {
+  @apply bg-rose-500 text-white ring-rose-500 ring-offset-2 hover:bg-rose-600 hover:ring dark:ring-offset-slate-900 2xl:ring-offset-4;
+}
+
+.secondary {
+  @apply bg-green-600 text-white ring-green-600 ring-offset-2 hover:bg-lime-600 hover:ring dark:ring-offset-slate-900 2xl:ring-offset-4;
+}
+
+.tertiary {
+  @apply bg-slate-600 text-white ring-slate-600 ring-offset-2 hover:bg-slate-400 hover:ring dark:bg-slate-400 dark:ring-slate-400 dark:ring-offset-slate-500 2xl:ring-offset-4;
+}
+
+.quaternary{
+  @apply bg-blue-500 text-white bg-blue-500 ring-offset-2 hover:bg-blue-500 hover:ring dark:bg-blue-500 dark:ring-blue-500 dark:ring-offset-blue-500 2xl:ring-offset-4;
+}
+
+.naked {
+  @apply bg-white text-slate-900;
+}
+
+.md {
+  @apply px-6 py-2;
+}
+
+.lg {
+  @apply px-7 py-4 text-sm md:px-8;
+}
+
+.disabled {
+  @apply cursor-not-allowed opacity-30;
+}
