@@ -5,7 +5,9 @@ import { Box, Button, Container, Input, Image, Grid, Text, } from '@components/u
 import cn from 'classnames';
 import s from '@styles/theme.module.scss'
 import { Login } from '@components/common/Login/Login';
-import Dashboard from '@components/sections/Dashboard/Dashboard';
+import theme from '@styles/theme';
+import { MessageList } from '@components/Section/MessageList';
+import { LoginBox } from '@components/Section/LoginBox';
 
 
 
@@ -17,9 +19,10 @@ export default function Home() {
     title='NLW_heat_Nextjs'
     description=''
     >
-      <Box className='bg-blue-700 flex' >
-
-      </Box>
+      <Box className={`max-w-7xl h-screen grid grid-cols-2 gap-x-32 gap-x-32relative`} >
+        <MessageList />
+        <LoginBox />
+      </Box>  
     
     </Page>
   );

@@ -3,6 +3,11 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
+  variants: {
+    extend: {
+      margin: ['even', 'odd'],
+    }
+  },
   theme: {
     extend: {},
     screens: {
@@ -23,6 +28,7 @@ module.exports = {
       '2xl': {'min': '1536px'},
       // => @media (min-width: 1536px) { ... }
     },
+
   },
   plugins: [],
 };
