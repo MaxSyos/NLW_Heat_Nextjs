@@ -8,12 +8,18 @@ import { Login } from '@components/common/Login/Login';
 import theme from '@styles/theme';
 import { MessageList } from '@components/Section/MessageList';
 import { LoginBox } from '@components/Section/LoginBox';
+import { AuthContext } from 'contexts/auth';
+import { useContext } from 'react';
+import { SendMessageForm } from '@components/Section/SendMessageForm';
 
 
 
 
 
 export default function Home() {
+
+  const { user } = useContext(AuthContext);
+
   return (
     <Page
     title='NLW_heat_Nextjs'
@@ -21,7 +27,7 @@ export default function Home() {
     >
       <Box className={`max-w-7xl h-screen grid grid-cols-2 gap-x-32 gap-x-32relative`} >
         <MessageList />
-        <LoginBox />
+        {!!user ? <SendMessageForm/> : <LoginBox />}
       </Box>  
     
     </Page>

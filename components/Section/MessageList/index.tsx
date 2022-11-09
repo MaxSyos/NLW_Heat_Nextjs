@@ -1,7 +1,8 @@
-import { Box, Container, Link, Text } from "@components/ui";
+import { Box, Container, Image, Link, Text } from "@components/ui";
 import { Logo } from "@components/ui/Logo/Logo";
 import { useEffect, useState } from "react";
 import { api } from '../../../pages/api/api'
+import io from "socket.io-client"
 
 type message = {
   id: string;
@@ -12,8 +13,30 @@ type message = {
   }
 }
 
+const messagesQueue: message[] = []; 
+
+const socket = io('https://4003-andbackup00-nlwheatnode-m28nv49avwq.ws-us75.gitpod.io/')
+
+socket.on('new_message', (newMessage: message) => {
+  messagesQueue.push(newMessage)
+})
+
 export const MessageList = () => {
   const [messages, setMessages] = useState<message[]>([]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if(messagesQueue.length > 0 ){
+        setMessages(preveState => [
+          messagesQueue[0],
+          preveState[0],
+          preveState[1],
+        ].filter(Boolean))
+
+        messagesQueue.shift();
+      }
+    }, 3000)
+  }, [])
 
   useEffect(() => {
     //chamada pra api
